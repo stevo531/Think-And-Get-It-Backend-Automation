@@ -7,7 +7,7 @@ import payloads.RegisterUser;
 import user.AuthenticateUser;
 
 import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.notNullValue;
+
 
 public class RegisterUserTest {
 
@@ -24,7 +24,6 @@ public class RegisterUserTest {
 
         var response = AuthenticateUser.registerUser(payload);
 
-      //  response.then().log().all();
         response.then()
                 .log().all()
                 .statusCode(201)
