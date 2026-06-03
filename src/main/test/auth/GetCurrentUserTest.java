@@ -30,7 +30,7 @@ import static org.hamcrest.Matchers.equalTo;
                     .body("data.user.email", equalTo(TestUserLogin.EMAIL))
                     .body("data.user.firstName", equalTo(TestUserLogin.USERFIRSTNAME));
 
-            String token = response.jsonPath().getString("data.token");
+            String token = response.jsonPath().getString("data.token"); // token for the logged in user
 
             Response meResponse =
                     AuthenticateUser.getUser(token);
