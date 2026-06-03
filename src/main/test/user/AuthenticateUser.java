@@ -3,6 +3,7 @@ package user;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import payloads.ForgotPasswordInputs;
 import payloads.RegisterUser;
 import payloads.UserLogin;
 
@@ -34,6 +35,30 @@ public class AuthenticateUser {
                 .body(payload)
                 .when()
                 .post("/auth/login")
+                .then()
+                .log().all()
+                .extract()
+                .response();
+    }
+    public static Response ForgotUserPassword(ForgotPasswordInputs payload) {
+        return given()
+                .log().all()
+                .contentType(ContentType.JSON)
+                .body(payload)
+                .when()
+                .post("/auth/forgot-password")
+                .then()
+                .log().all()
+                .extract()
+                .response();
+    }
+
+    public static Response getUser(String token) {
+        return given()
+                .log().all()
+                .header("Authorization", "Bearer " + token)
+                .when()
+                .get("/auth/me")
                 .then()
                 .log().all()
                 .extract()

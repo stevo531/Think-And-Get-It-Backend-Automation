@@ -11,7 +11,6 @@ import user.AuthenticateUser;
 import static org.hamcrest.Matchers.equalTo;
 
 public class LoginUserTest {
-
     @Test
     public void testLogin() {
         UserLogin payload = new UserLogin(
@@ -28,6 +27,8 @@ public class LoginUserTest {
                 .statusCode(200)
                 .body("data.user.email", equalTo(TestUserLogin.EMAIL))
                 .body("data.user.firstName", equalTo(TestUserLogin.USERFIRSTNAME));
+        String token = response.jsonPath().getString("data.token");
 
     }
+
 }
