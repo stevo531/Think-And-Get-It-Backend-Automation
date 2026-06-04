@@ -14,6 +14,8 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class UpdateProfileTest {
 
+
+    //test to update user profile
     @Test
     public void testUpdateProfile() {
 
