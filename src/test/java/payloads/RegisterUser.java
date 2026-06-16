@@ -7,7 +7,6 @@ public class RegisterUser {
     private String lastName;
     private String phone;
 
-    // Constructors
     public RegisterUser(String email, String password, String firstName, String lastName, String phone) {
         this.email = email;
         this.password = password;
